@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <h1>Oops! could not locate that search term. Did you mean...</h1>
+
+    <ul>
+        {% for title in matches %}
+        <li><a href="wiki/{{ title }}">{{ title }}</a></li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
