@@ -5,5 +5,10 @@
 {% endblock %}
 
 {% block body %}
+{% if message %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+{% endif %}
     {{ page_info | safe}}
 {% endblock %}
