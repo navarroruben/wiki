@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create new page
+{% endblock %}
+
+{% block body %}
+    {% if message %}
+        <div class="alert alert-success" role="alert">
+            Title already exists.
+        </div>
+    {% endif %}
+    <div id="new_page_header">
+        <h1>Create New Page</h1>
+    </div>
+    <form action="{% url 'new_page'%}" method="POST">
+        {% csrf_token %}
+        <div class="new_page_title">
+            <textarea name="title" placeholder="New Page Title" style="width: 400px; height: 35px;" maxlength="64" required>{% if title %} {{ title }}{% endif %}</textarea>
+        </div>
+        <div class="new_page_text">
+            <textarea id="text_area" name="text_area" placeholder="Enter Markdown Information Here." style="width: 1200px; height: 600px; margin-top: 10px;">{% if text_area %} {{ text_area }} {% endif %}</textarea>
+        </div>
+        <div class="save_new_page_btn">
+            <input type="submit" value="Save" style="margin-top: 5px;">
+        </div>
+    </form>
+{% endblock %}
