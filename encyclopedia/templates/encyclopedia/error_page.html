@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "encyclopedia/layout.html" %}
 
-</body>
-</html>
+{% block title %}
+    Error: entry not found!
+{% endblock %}
+
+{% block body %}
+    <h1>Error: {{ name }} not found.</h1>
+    <p> The page entry you are trying to reach has not been found.</p>
+{% endblock %}
