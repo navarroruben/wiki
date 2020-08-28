@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit Entry
+{% endblock %}
+
+{% block body %}
+<div id="edit_entry">
+        <h1>Edit Entry</h1>
+    </div>
+    <form action="{% url 'edit_entry' name%}" method="POST">
+        {% csrf_token %}
+        <div class="edit_page_title">
+            <textarea id="edit_title" name="edit_title" style="width: 400px; height: 35px;" maxlength="64" required>{{ name }}</textarea>
+        </div>
+        <div class="edit_page_text">
+            <textarea id="edit_text_area" name="edit_text_area" style="width: 1200px; height: 600px; margin-top: 10px;">{{ text_area }}</textarea>
+        </div>
+        <div class="save_new_page_btn">
+            <input type="submit" value="Save" style="margin-top: 5px;">
+        </div>
+    </form>
+{% endblock %}
